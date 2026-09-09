@@ -1,0 +1,11 @@
+ function notFoundHandler(req, res) {
+   res.status(404).json({ error: 'Not Found' });
+ }
+
+ function errorHandler(err, req, res, next) {
+   console.error(err);
+   const status = err.status || 502;
+   res.status(status).json({ error: err.message || 'Internal Server Error' });
+ }
+
+ module.exports = { notFoundHandler, errorHandler };
