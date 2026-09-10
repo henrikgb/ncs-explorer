@@ -1,6 +1,7 @@
 import { isAxiosError } from 'axios'
 import './App.css'
 import { useClearProducts, useProducts } from './hooks/dummyjson/useProducts'
+import { Button } from './components/Button'
 
 function App() {
   const { 
@@ -20,20 +21,22 @@ function App() {
           <h1>NCS Explorer</h1>
           <h4>Explore oil and gas data from the Norwegian Continental Shelf</h4>
         </div>
-
-        <button 
-          onClick={() => refetchingProducts()}
-          disabled={isFetchingProducts}
-        >
-          {isFetchingProducts ? 'Loading Products...' : 'Load Products'}
-        </button>
-        <button
-          onClick={() => {
-            clearProducts()
-          }}
-        >
-          Clear product list
-        </button>
+        
+        <div className="flex flex-row gap-10">
+          <Button 
+            onClick={() => refetchingProducts()}
+            disabled={isFetchingProducts}
+          >
+            {isFetchingProducts ? 'Loading Products...' : 'Load Products'}
+          </Button>
+          <Button
+            onClick={() => {
+              clearProducts()
+            }}
+          >
+            Clear product list
+          </Button>
+        </div>
 
         {isLoading && <p>Loading products...</p>}
         {isError && (
