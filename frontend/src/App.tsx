@@ -1,9 +1,17 @@
 import { isAxiosError } from 'axios'
 import './App.css'
-import { useProducts } from './hooks/dummyjson/useProducts'
+import { useClearProducts, useProducts } from './hooks/dummyjson/useProducts'
 
 function App() {
-  const { data: products, isLoading, isError, error } = useProducts()
+  const { 
+    data: products, 
+    isLoading, 
+    isError, 
+    error,
+    refetch: refetchingProducts,
+    isFetching: isFetchingProducts,
+  } = useProducts()
+  const clearProducts = useClearProducts()
 
   return (
     <>
@@ -12,9 +20,21 @@ function App() {
           <h1>NCS Explorer</h1>
           <h4>Explore oil and gas data from the Norwegian Continental Shelf</h4>
         </div>
-      </section>
 
-      <section>
+        <button 
+          onClick={() => refetchingProducts()}
+          disabled={isFetchingProducts}
+        >
+          {isFetchingProducts ? 'Loading Products...' : 'Load Products'}
+        </button>
+        <button
+          onClick={() => {
+            clearProducts()
+          }}
+        >
+          Clear product list
+        </button>
+
         {isLoading && <p>Loading products...</p>}
         {isError && (
           <p role="alert">
