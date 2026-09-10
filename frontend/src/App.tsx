@@ -33,6 +33,7 @@ function App() {
             onClick={() => {
               clearProducts()
             }}
+            disabled={!products || products.length === 0}
           >
             Clear product list
           </Button>
