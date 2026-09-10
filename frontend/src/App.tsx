@@ -4,10 +4,10 @@ import { useClearProducts, useProducts } from './hooks/dummyjson/useProducts'
 import { Button } from './components/Button'
 
 function App() {
-  const { 
-    data: products, 
-    isLoading, 
-    isError, 
+  const {
+    data: products,
+    isLoading,
+    isError,
     error,
     refetch: refetchingProducts,
     isFetching: isFetchingProducts,
@@ -21,9 +21,9 @@ function App() {
           <h1>NCS Explorer</h1>
           <h4>Explore oil and gas data from the Norwegian Continental Shelf</h4>
         </div>
-        
+
         <div className="flex flex-row gap-10">
-          <Button 
+          <Button
             onClick={() => refetchingProducts()}
             disabled={isFetchingProducts}
           >
@@ -43,7 +43,7 @@ function App() {
           <p role="alert">
             Failed to load products:{' '}
             {isAxiosError<{ error: string }>(error)
-              ? error.response?.data?.error ?? error.message
+              ? (error.response?.data?.error ?? error.message)
               : 'Unknown error'}
           </p>
         )}

@@ -10,4 +10,3 @@ export async function fetchProduct(id: number): Promise<Product> {
   const { data } = await apiClient.get<Product>(`/api/dummyjson/products/${id}`)
   return data
 }
-                                                          
