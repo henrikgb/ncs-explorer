@@ -48,3 +48,6 @@ When adding a new data source, mirror the `dummyjson` slice under both `api/` an
 ### Code style
 - Prettier config (`frontend/.prettierrc`): 2-space indent, single quotes, no semicolons, trailing commas everywhere. Run `npm run format` in `frontend/` before committing; backend has no Prettier config configured yet.
 - Backend uses CommonJS (`require`/`module.exports`); frontend uses ES modules/TypeScript.
+
+## Git workflow
+Use the project skills `/create-commit` and `/pr-description` for Git commits and pull request descriptions.
