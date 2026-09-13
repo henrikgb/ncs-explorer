@@ -3,6 +3,7 @@ const cors = require('cors');
 const config = require('./config');
 const systemRoutes = require('./routes/systemRoutes');
 const dummyjsonRoutes = require('./routes/dummyjsonRoutes');
+const sodirRoutes = require('./routes/sodirRoutes');
 const { notFoundHandler, errorHandler } = require('./middleware/errorHandler');
 
 // Initialize Express application
@@ -15,6 +16,7 @@ app.use(express.json()); // Allows parsing of incoming JSON requests
 // Routes
 app.use('/api', systemRoutes);
 app.use('/api/dummyjson', dummyjsonRoutes);
+app.use('/api/sodir', sodirRoutes);
 
 // Root route for basic backend status check
 app.get('/', (req, res) => {
