@@ -1,7 +1,13 @@
 import './App.css'
 import { NorwayMap } from './components/NorwayMap'
+import { useFields } from './hooks/sodir/useFields'
 
 function App() {
+  const { data: fields } = useFields()
+
+  console.log(fields)
+
+
   return (
     <>
       <header className="shrink-0 text-center">

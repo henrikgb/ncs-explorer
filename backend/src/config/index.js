@@ -9,6 +9,7 @@
  * - PORT: Port used by the BFF server.
  * - CORS_ORIGIN: Origin allowed to access the BFF.
  * - DUMMYJSON_BASE_URL: Base URL for the DummyJSON API.
+ * - SODIR_BASE_URL: Base URL (service root) for the SODIR FeatureServer API.
  */
 
 require('dotenv').config();
@@ -18,5 +19,10 @@ module.exports = {
   corsOrigin: process.env.CORS_ORIGIN || 'http://localhost:5173',
   dummyJson: {
     baseUrl: process.env.DUMMYJSON_BASE_URL || 'https://dummyjson.com',
+  },
+  sodir: {
+    baseUrl:
+      process.env.SODIR_BASE_URL ||
+      'https://factmaps.sodir.no/api/rest/services/DataService/Data/FeatureServer',
   },
 };
